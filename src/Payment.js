@@ -1,11 +1,14 @@
 import React from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap-grid.min.css';
 import './App.css';
-
-const amount = 50000;
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
+import axios from 'axios'
+import  { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+const amount = 47800;
 const currency = "INR";
 const receipt = "receipt#1";
-
 const as = async (e) => {
   e.preventDefault();
   
@@ -15,12 +18,11 @@ const as = async (e) => {
       body: JSON.stringify({ amount, currency, receipt }),
       headers: { "Content-Type": "application/json" },
     });
-    
     const order = await response.json();
     console.log(order);
     
     const options = {
-      key: "rzp_test_jGLgUjxUV4vXJu",
+      key: "rzp_test_AjUfiTAoazw3EC",
       amount,
       currency,
       name: "water purifiers",
@@ -88,10 +90,17 @@ const as = async (e) => {
 };
 
 const Payment = () => {
-  return (
-    <div>
-      <button onClick={as}>Make Payment</button>
-    </div>
+  return(
+    <Card style={{ width: '11rem', marginLeft:'650px', marginTop:'120px', border:'none'}} id='ty' >
+      <Card.Img style={{width: '180px', height:'260px'}} variant="top" src="https://lps-cdn.rpsapi.in/assets/images/product-Copper.webp" />
+      <Card.Body>
+        <Card.Title>Bolt Copper</Card.Title>
+        <Card.Text>
+         <h4 id='ty'>₹478/mo</h4>
+        </Card.Text>
+        <Button onClick={as} style={{backgroundColor:'orange',color:''}}>Make Payment</Button>
+      </Card.Body>
+    </Card>
   );
 };
 

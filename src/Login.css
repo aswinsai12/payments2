@@ -1,23 +1,10 @@
-div#h{
- padding-left: 600px;
-}
-div#h3{
-    padding-right: 400px;
-}
-h4#ty{
-    color:blueviolet;;
-}
-Card.Img{
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-}
-div-#if{
-    justify-content: center;
-    align-items: center;
+body{
+    background-image: url(https://www.freepik.com/free-vector/ocean-wave-background_712541.htm#fromView=keyword&page=1&position=15&uuid=b60edc8b-89c6-4815-b33a-634d0275cba5&query=Water+Background);
 }
 .wrapper{
     width: 420px;
+    align-items: center;
+    justify-content: center;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(30px);
@@ -29,13 +16,15 @@ div-#if{
 .wrapper h1{
     font-size: 36px;
     text-align: center;
+    justify-content: center;
+    color: blue;
 }
 
 .wrapper .input-box{
     position: relative;
     width: 100%;
     height: 50px;
-    /* background: salmon; */
+     background: salmon; 
     margin: 30px 0;
 }
 
@@ -107,4 +96,5 @@ div-#if{
 
 .register-link p a:hover{
     text-decoration: underline;
+
 }

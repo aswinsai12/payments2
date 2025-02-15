@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
+import './Login.css'
 import {Link, useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import '../node_modules/bootstrap/dist/css/bootstrap-grid.min.css'
 import './App.css';
+import { FaUserAlt } from "react-icons/fa";
+import { FaLock } from "react-icons/fa";
 const Login = () => {
     const [values, setValues] = useState({
         email: '',
@@ -16,7 +19,7 @@ const Login = () => {
     const handleSumbit = async (e) => {
         e.preventDefault()
         try {
-            const response = await axios.post('http://localhost:3000/auth/login', values)
+            const response = await axios.post('http://localhost:3000/auth/Login', values)
             if(response.status === 201) {
                 localStorage.setItem('token', response.data.token)
                 navigate('/')
@@ -26,29 +29,29 @@ const Login = () => {
         }
     }
   return (
-    <div className='flex justify-center items-center h-screen' id='h'>
-        <div className='shadow-lg px-8 py-5 border w-72'>
-            <h2 className='text-lg font-bold mb-4'>Login</h2>
-            <form onSubmit={handleSumbit}>
-                <div className="mb-4">
-                    <label htmlFor="email" className='block text-gray-700'>Email</label>
-                    <input type="email" placeholder='Enter Email' className='w-full px-3 py-2 border'
-                    name="email" onChange={handleChanges}/>
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="password" className='block text-gray-700'>Password</label>
-                    <input type="password" placeholder='Enter Password' className='w-full px-3 py-2 border'
-                    name="password" onChange={handleChanges}/>
-                </div>
-                <Link to='/Payment'>Submit</Link>
-            </form>
-           
-            <div className="text-center">
-                <span>Don't Have Account?</span>
-                <Link to='/Signup' className='text-blue-500'>Signup</Link>
-            </div>
+    <div className='wrapper'>
+    <form action="">
+        <h1>Login</h1>
+        <div className="input-box">
+            <input type="text" placeholder="Username" required name="username" onChange={handleChanges}/>
+            <FaUserAlt className='icon'/>
         </div>
-    </div>
+        <div className="input-box">
+            <input type="password" placeholder="Password" required/>
+            <FaLock className='icon'/>
+        </div>
+        <div className="remember-forgot">
+            <label><input type="checkbox" />Remember me</label>
+            <a href="#">Forgot password?</a>
+            
+        </div>
+        <button type='submit'>Login</button>
+        <div className="register-link">
+            <p>Don't have an account?<a href="#">Register</a></p>
+        </div>
+    </form>
+</div>
+   
   )
 }
 
